@@ -7,6 +7,9 @@
 #include "unphone.h"
 #include <IRremote.h>
 
+#define VAR_DECLS
+#include "vars.h"
+
 IRsend irsend;
 
 void setup() {
@@ -73,18 +76,32 @@ void setup() {
   lmic_do_send(&sendjob);
 }
 
-void loop() {
-  //bool usbPowerOn = checkPowerSwitch(); // shutdown if switch off
-  
-  //TestScreen::testSequence(usbPowerOn); // run a test on all modules
-  for (int i = 0; i < 3; i++) {     // Sony protocol requires three repeats of each command
-    irsend.sendSony(0xa90, 12);     // 0xa90 combines devices ID 1 for TV with code 21 for power.
-    Serial.println("Flashing");
-                                    // Format is 2nd param, for Sony either 12 or 20 (mostly).
-    //irsend.sendNEC(value, bits);  // other formats have helper funcions too - 
-    //irsend.sendRC5(value, bits);  // look at the examples for the IRremote library to get syntax.
-
+void Send_IR(int device, unsigned long hex) {
+    for (int i = 0; i < 3; i++) {
+      if (device == 1) {
+         irsend.sendSAMSUNG(hex, Samsung_bits);
+      } 
+      else if (device == 2){
+         irsend.sendSony(hex, Sony_bits);
+      }
+      else if (device == 3){
+         irsend.sendSony(hex, Sony_bits);
+      }
+      else if (device == 4){
+         irsend.sendPanasonic(Panasonic_ID, hex);
+      }
+      else /* default: */{
+        printf("Invalid Device\n" );
+      }
     delay(40);
   }
   delay(5000); //5 second delay between each signal burst
+  }
+
+void loop() {
+  //bool usbPowerOn = checkPowerSwitch(); // shutdown if switch off
+  //TestScreen::testSequence(usbPowerOn); // run a test on all modules
+      //irsend.sendNEC(value, bits);  // other formats have helper funcions too - 
+    //irsend.sendRC5(value, bits);  // look at the examples for the IRremote library to get syntax.
+    Send_IR(4, DVD_power);
 }
