@@ -11,14 +11,14 @@ Setup variable declaration macros.
 # define _INIT(x)
 #else
 # define _DECL
-# define _INIT(x)  = x
+# define _INIT(x) = x
 #endif
 /*---------------------------------------------
  Bits
 ---------------------------------------------*/
 _DECL int Sony_bits _INIT(12);
 _DECL int Samsung_bits _INIT(32);
-_DECL int Panasonic_bits _INIT(48);
+_DECL unsigned int Panasonic_ID _INIT(0x4004);
 /*----------------------------------------------
 Samsung TV
 ----------------------------------------------*/
@@ -52,20 +52,20 @@ _DECL unsigned long SonyCD_shuffle _INIT(0xAD1);
 /*----------------------------------------------
 Panasonic DVD Player
 ----------------------------------------------*/
-_DECL unsigned long DVD_power _INIT(0x40040500BCB9);
-_DECL unsigned long DVD_v_up _INIT(0x400405000401);
-_DECL unsigned long DVD_v_down _INIT(0x400405008481);
-_DECL unsigned long DVD_play _INIT(0x400405005055);
-_DECL unsigned long DvD_pause _INIT(0x400405006065);
-_DECL unsigned long DVD_stop _INIT(0x400405000005);
-_DECL unsigned long DVD_mute _INIT(0x400405004C49);
-_DECL unsigned long DVD_ff _INIT(0x400405005257);
-_DECL unsigned long DVD_rew _INIT(0x400405009297);
-_DECL unsigned long DVD_up _INIT(0x400405006C69);
-_DECL unsigned long DVD_down _INIT(0x40040500ACA9);
-_DECL unsigned long DVD_left _INIT(0x40040500ECE9);
-_DECL unsigned long DVD_right _INIT(0x400405006C69);
-_DECL unsigned long DVD_select _INIT(0x400405006366);
+_DECL unsigned long DVD_power _INIT(0x500BCB9);
+_DECL unsigned long DVD_v_up _INIT(0x5000401);
+_DECL unsigned long DVD_v_down _INIT(0x5008481);
+_DECL unsigned long DVD_play _INIT(0x5005055);
+_DECL unsigned long DvD_pause _INIT(0x5006065);
+_DECL unsigned long DVD_stop _INIT(0x5000005);
+_DECL unsigned long DVD_mute _INIT(0x5004C49);
+_DECL unsigned long DVD_ff _INIT(0x5005257);
+_DECL unsigned long DVD_rew _INIT(0x5009297);
+_DECL unsigned long DVD_up _INIT(0x5006C69);
+_DECL unsigned long DVD_down _INIT(0x500ACA9);
+_DECL unsigned long DVD_left _INIT(0x500ECE9);
+_DECL unsigned long DVD_right _INIT(0x5006C69);
+_DECL unsigned long DVD_select _INIT(0x5006366);
 #endif
 /*----------------------------------------------------------------------------
 ----------------------------------------------------------------------------*/
