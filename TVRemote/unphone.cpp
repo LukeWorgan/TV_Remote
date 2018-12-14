@@ -3,7 +3,7 @@
 
 #include "unphone.h"
 
-bool UNPHONE_DBG = false; // debug switch
+bool UNPHONE_DBG = true; // debug switch
 
 // power management chip API /////////////////////////////////////////////////
 byte BM_I2Cadd   = 0x6b;  // the chip lives here on I²C
